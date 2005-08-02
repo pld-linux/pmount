@@ -9,10 +9,10 @@ Source0:	http://www.piware.de/projects/%{name}-%{version}.tar.gz
 # Source0-md5:	c199e73ef33e649e33ff9c5b1f52a959
 Patch0:		%{name}-build_fixes.patch
 URL:		http://www.piware.de/projects.shtml
-BuildRequires:	hal-devel
+BuildRequires:	hal-devel >= 0.5.3
 BuildRequires:	pkgconfig
 BuildRequires:	sysfsutils-devel
-Requires:	hal
+Requires:	hal >= 0.5.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
