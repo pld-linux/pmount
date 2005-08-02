@@ -32,7 +32,7 @@ wymiennych nie posiadaj±cych wpisu w /etc/fstab.
 %build
 %{__make} \
 	OPTFLAGS="%{rpmcflags}" \
-	CC=%{__cc} \
+	CC="%{__cc}" \
 	bindir=%{_bindir} \
 	datadir=%{_datadir} \
 	sysconfdir=%{_sysconfdir}
