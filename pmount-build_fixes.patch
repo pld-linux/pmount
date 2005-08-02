@@ -1,0 +1,52 @@
+diff -aurN pmount-0.9.3.orig/Makefile pmount-0.9.3/Makefile
+--- pmount-0.9.3.orig/Makefile	2005-06-27 15:16:23.000000000 +0200
++++ pmount-0.9.3/Makefile	2005-08-02 15:06:57.000000000 +0200
+@@ -1,5 +1,5 @@
+ LIBS=-lsysfs
+-CFLAGS?=-Wall -W -O2
++CFLAGS?=-Wall -W $(OPTFLAGS)
+ HAL_CFLAGS=$(shell pkg-config hal --cflags)
+ HAL_LDFLAGS=$(shell pkg-config hal --libs)
+ VERSION=$(shell head -n 1 CHANGES)
+@@ -24,13 +24,13 @@
+ 	$(CC) $(LDFLAGS) $(HAL_LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: all install-mo
+-	install -o root -g root -m 4755 -D ./pmount $(DESTDIR)/$(PREFIX)/bin/pmount
+-	install -o root -g root -m 4755 -D ./pumount $(DESTDIR)/$(PREFIX)/bin/pumount
+-	install -o root -g root -m 755 -D ./pmount-hal $(DESTDIR)/$(PREFIX)/bin/pmount-hal
+-	install -o root -g root -m 644 -D ./pmount.1 $(DESTDIR)/$(PREFIX)/share/man/man1/pmount.1
+-	install -o root -g root -m 644 -D ./pumount.1 $(DESTDIR)/$(PREFIX)/share/man/man1/pumount.1
+-	install -o root -g root -m 644 -D ./pmount-hal.1 $(DESTDIR)/$(PREFIX)/share/man/man1/pmount-hal.1
+-	install -o root -g root -m 644 -D ./pmount.allow $(DESTDIR)/etc/pmount.allow
++	install -D ./pmount $(DESTDIR)/$(bindir)/pmount
++	install -D ./pumount $(DESTDIR)/$(bindir)/pumount
++	install -D ./pmount-hal $(DESTDIR)/$(bindir)/pmount-hal
++	install -D ./pmount.1 $(DESTDIR)/$(datadir)/man/man1/pmount.1
++	install -D ./pumount.1 $(DESTDIR)/$(datadir)/man/man1/pumount.1
++	install -D ./pmount-hal.1 $(DESTDIR)/$(datadir)/man/man1/pmount-hal.1
++	install -D ./pmount.allow $(DESTDIR)/$(sysconfdir)/pmount.allow
+ 
+ uninstall: uninstall-mo
+ 	rm -f $(DESTDIR)/$(PREFIX)/bin/pmount $(DESTDIR)/$(PREFIX)/bin/pumount $(DESTDIR)/$(PREFIX)/bin/pmount-hal
+@@ -38,7 +38,7 @@
+ 	rm -f $(DESTDIR)/$(PREFIX)/share/man/man1/pmount-hal.1
+ 
+ install-mo:
+-	for f in po/*.po; do P="$(DESTDIR)/$(PREFIX)/share/locale/$$(basename $${f%.po})/LC_MESSAGES/"; mkdir -p "$$P"; msgfmt -o "$$P/pmount.mo" $$f; done
++	for f in po/*.po; do P="$(DESTDIR)/$(datadir)/locale/$$(basename $${f%.po})/LC_MESSAGES/"; mkdir -p "$$P"; msgfmt -o "$$P/pmount.mo" $$f; done
+ 
+ uninstall-mo:
+ 	for f in po/*.po; do P="$(DESTDIR)/$(PREFIX)/share/locale/$$(basename $${f%.po})/LC_MESSAGES/"; rm -f "$$P/pmount.mo"; rmdir -p --ignore-fail-on-non-empty "$$P"; done
+diff -aurN pmount-0.9.3.orig/policy.c pmount-0.9.3/policy.c
+--- pmount-0.9.3.orig/policy.c	2005-06-27 15:16:23.000000000 +0200
++++ pmount-0.9.3/policy.c	2005-08-02 15:07:08.000000000 +0200
+@@ -20,7 +20,7 @@
+ #include <dirent.h>
+ #include <libintl.h>
+ #include <sys/stat.h>
+-#include <sysfs/libsysfs.h>
++#include <libsysfs.h>
+ #include <regex.h>
+ 
+ /*************************************************************************
