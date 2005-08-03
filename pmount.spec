@@ -1,5 +1,5 @@
 Summary:	Programs for mounting and unmounting filesystems as normal user
-Summary(pl):	Programy do montowania i odmontowywania systemów plików jako zwyk³y user
+Summary(pl):	Programy do montowania i odmontowywania systemów plików jako zwyk³y u¿ytkownik
 Name:		pmount
 Version:	0.9.3
 Release:	1
@@ -22,7 +22,7 @@ normal users to mount/umount removable devices without a matching
 
 %description -l pl
 pmount jest wrapperem standardowego programu mount, który pozwala
-zwyk³emu u¿ytkownikowi na mountowanie/odmountowywanie urz±dzeñ
+zwyk³emu u¿ytkownikowi na montowanie/odmontowywanie urz±dzeñ
 wymiennych nie posiadaj±cych wpisu w /etc/fstab.
 
 %prep
