@@ -1,12 +1,12 @@
 Summary:	Programs for mounting and unmounting filesystems as normal user
 Summary(pl):	Programy do montowania i odmontowywania systemów plików jako zwyk³y u¿ytkownik
 Name:		pmount
-Version:	0.9.3
+Version:	0.9.4
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://www.piware.de/projects/%{name}-%{version}.tar.gz
-# Source0-md5:	c199e73ef33e649e33ff9c5b1f52a959
+# Source0-md5:	249d016d7e863e8cec4a45267c4f4af9
 Patch0:		%{name}-build_fixes.patch
 URL:		http://www.piware.de/projects.shtml
 BuildRequires:	hal-devel >= 0.5.3
