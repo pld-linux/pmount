@@ -9,6 +9,7 @@ Source0:	http://www.piware.de/projects/%{name}-%{version}.tar.gz
 # Source0-md5:	249d016d7e863e8cec4a45267c4f4af9
 Patch0:		%{name}-build_fixes.patch
 URL:		http://www.piware.de/projects.shtml
+BuildRequires:	gettext-devel
 BuildRequires:	hal-devel >= 0.5.3
 BuildRequires:	pkgconfig
 BuildRequires:	sysfsutils-devel
