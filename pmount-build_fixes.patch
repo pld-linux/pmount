@@ -38,15 +38,3 @@ diff -aurN pmount-0.9.3.orig/Makefile pmount-0.9.3/Makefile
  
  uninstall-mo:
  	for f in po/*.po; do P="$(DESTDIR)/$(PREFIX)/share/locale/$$(basename $${f%.po})/LC_MESSAGES/"; rm -f "$$P/pmount.mo"; rmdir -p --ignore-fail-on-non-empty "$$P"; done
-diff -aurN pmount-0.9.3.orig/policy.c pmount-0.9.3/policy.c
---- pmount-0.9.3.orig/policy.c	2005-06-27 15:16:23.000000000 +0200
-+++ pmount-0.9.3/policy.c	2005-08-02 15:07:08.000000000 +0200
-@@ -20,7 +20,7 @@
- #include <dirent.h>
- #include <libintl.h>
- #include <sys/stat.h>
--#include <sysfs/libsysfs.h>
-+#include <libsysfs.h>
- #include <regex.h>
- 
- /*************************************************************************
