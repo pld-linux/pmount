@@ -8,6 +8,7 @@ Group:		Applications
 Source0:	http://www.piware.de/projects/%{name}-%{version}.tar.gz
 # Source0-md5:	b9d169831257b278cf30c051c42ce177
 Patch0:		%{name}-build_fixes.patch
+Patch1:		%{name}-dbus.patch
 URL:		http://www.piware.de/projects.shtml
 BuildRequires:	autoconf
 BuildRequires:	automake >= 2.52
@@ -34,6 +35,7 @@ wymiennych nie posiadaj±cych wpisu w /etc/fstab.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
