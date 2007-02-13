@@ -1,5 +1,5 @@
 Summary:	Programs for mounting and unmounting filesystems as normal user
-Summary(pl.UTF-8):   Programy do montowania i odmontowywania systemów plików jako zwykły użytkownik
+Summary(pl.UTF-8):	Programy do montowania i odmontowywania systemów plików jako zwykły użytkownik
 Name:		pmount
 Version:	0.9.13
 Release:	1
