@@ -1,7 +1,6 @@
-diff -aurN pmount-0.9.7.orig/src/Makefile.am pmount-0.9.7/src/Makefile.am
---- pmount-0.9.7.orig/src/Makefile.am	2005-12-16 11:34:37.000000000 +0100
-+++ pmount-0.9.7/src/Makefile.am	2006-02-27 16:23:03.876543872 +0100
-@@ -30,8 +30,8 @@
+--- pmount-0.9.21/src/Makefile.am~	2010-05-04 22:22:07.000000000 +0200
++++ pmount-0.9.21/src/Makefile.am	2010-05-09 14:54:00.023752855 +0200
+@@ -36,8 +36,8 @@
  
  install-data-hook:
  	test -z $(INSTALL_DIR) || mkdir -p -- $(INSTALL_DIR)
@@ -9,6 +8,6 @@ diff -aurN pmount-0.9.7.orig/src/Makefile.am pmount-0.9.7/src/Makefile.am
 -	$(INSTALL_DATA) -o root -g root -m 4755 -D $(INSTALL_SRC)/pumount $(INSTALL_DIR)/pumount
 +	$(INSTALL_DATA) -D $(INSTALL_SRC)/pmount $(INSTALL_DIR)/pmount
 +	$(INSTALL_DATA) -D $(INSTALL_SRC)/pumount $(INSTALL_DIR)/pumount
- 	
+ 
  uninstall-hook:
  	rm -f $(INSTALL_DIR)/pmount
