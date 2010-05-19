@@ -5,7 +5,7 @@ Version:	0.9.21
 Release:	1
 License:	GPL v2
 Group:		Applications
-Source0:	https://alioth.debian.org/frs/download.php/3278/pmount-0.9.21.tar.bz2
+Source0:	https://alioth.debian.org/frs/download.php/3278/%{name}-%{version}.tar.bz2
 # Source0-md5:	7d29dc8101df1a3a28764d959f24893f
 Patch0:		%{name}-build_fixes.patch
 URL:		http://pmount.alioth.debian.org/
@@ -15,6 +15,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel
 BuildRequires:	hal-devel >= 0.5.2
 BuildRequires:	intltool >= 0.21
+BuildRequires:	libblkid-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	sysfsutils-devel >= 1.3.0-3
