@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	hal		# build pmount-hal (HAL is deprecated)
+#
 Summary:	Programs for mounting and unmounting filesystems as normal user
 Summary(pl.UTF-8):	Programy do montowania i odmontowywania systemów plików jako zwykły użytkownik
 Name:		pmount
@@ -13,13 +17,13 @@ BuildRequires:	autoconf
 BuildRequires:	automake >= 2.52
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel
-BuildRequires:	hal-devel >= 0.5.2
+%{?with_hal:BuildRequires:	hal-devel >= 0.5.2}
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libblkid-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	sysfsutils-devel >= 1.3.0-3
-Requires:	hal >= 0.5.2
+%{?with_hal:Requires:	hal >= 0.5.2}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,7 +46,9 @@ wymiennych nie posiadających wpisu w /etc/fstab.
 %{__aclocal}
 %{__automake}
 %{__autoconf}
-%configure
+%configure \
+	%{__enable_disable hal hal}
+
 %{__make}
 
 %install
@@ -62,5 +68,5 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) /etc/pmount.allow
 %attr(4755,root,root) %{_bindir}/pmount
 %attr(4755,root,root) %{_bindir}/pumount
-%attr(755,root,root) %{_bindir}/pmount-hal
+%{?with_hal:%attr(755,root,root) %{_bindir}/pmount-hal}
 %{_mandir}/man1/*
