@@ -6,7 +6,7 @@ Summary:	Programs for mounting and unmounting filesystems as normal user
 Summary(pl.UTF-8):	Programy do montowania i odmontowywania systemów plików jako zwykły użytkownik
 Name:		pmount
 Version:	0.9.21
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	https://alioth.debian.org/frs/download.php/3278/%{name}-%{version}.tar.bz2
