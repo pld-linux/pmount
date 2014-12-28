@@ -15,7 +15,7 @@ Patch0:		%{name}-build_fixes.patch
 URL:		http://pmount.alioth.debian.org/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 2.52
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel
 %{?with_hal:BuildRequires:	hal-devel >= 0.5.2}
 BuildRequires:	intltool >= 0.21
